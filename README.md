@@ -1,2 +1,2 @@
 # guaitaLlen-
-a Canva creation app guaita tyle 
+a Canva creation app guaita style 
