@@ -1,2 +1,2 @@
 # guaitaLlenç
-a Canva creation app guaita style 
+a Canva creation app by guaita
