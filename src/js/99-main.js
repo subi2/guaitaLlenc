@@ -79,6 +79,7 @@ async function boot() {
   try { await FontKit.ready(); } catch (e) { }
   TextKit.cache.clear(); TextKit.metricsCache.clear();
   await Packs.init();
+  PWA.register();
   await Start.open(true);
   // tecla de focus perduda: torna al llenç
   App.stage.addEventListener('pointerdown', () => { if (document.activeElement === document.body) App.stage.focus({ preventScroll: true }); });

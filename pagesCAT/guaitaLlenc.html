@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  guaitaLlenç v0.13.1 — Editor gràfic de la suite Guaita Apps
+  guaitaLlenç v0.13.2 — Editor gràfic de la suite Guaita Apps
   Copyright (C) 2026 SBS BiM Consulting, Jordi Subirós
 
   This program is free software: you can redistribute it and/or modify
@@ -26,8 +26,8 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="../icons/icon-192.png">
 <meta name="description" content="guaitaLlenç — editor gràfic de pàgines, pòsters i làmines. Guaita Apps.">
-<meta name="generator" content="guaitaLlenç 0.13.1">
-<title>guaitaLlenç 0.13.1</title>
+<meta name="generator" content="guaitaLlenç 0.13.2">
+<title>guaitaLlenç 0.13.2</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0d0c'/%3E%3Crect x='7' y='7' width='18' height='18' rx='2' fill='none' stroke='%23c8ff2e' stroke-width='2.4'/%3E%3Cpath d='M12 20 L20 12' stroke='%23c8ff2e' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
 /* ── guaitaLlenç · tema Caixetí ─────────────────────────────── */
@@ -647,7 +647,7 @@ body.kids .st-presets .preset { border-radius: 16px; }
 <body>
 <div id="app" class="no-doc">
   <header id="topbar">
-    <div class="brand" title="guaitaLlenç 0.13.1">
+    <div class="brand" title="guaitaLlenç 0.13.2">
       <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M11 21 L21 11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
       <span class="brand-name">guaita<b>Llenç</b></span>
     </div>
@@ -736,7 +736,7 @@ const GL_FONTS = [{"f":"IBM Plex Sans","w":300,"s":"normal","d":"d09GMgABAAAAAF7
 (function () {
 // ── 00-util.js ──
 /* ── Utilitats ───────────────────────────────────────────────── */
-const VERSION = '0.13.1';
+const VERSION = '0.13.2';
 const APP = 'guaitaLlenç';
 const GL = window.GL = { VERSION };
 const TEST = !!window.__GL_TEST__;
@@ -8927,6 +8927,18 @@ const GH = GL.gh = {
   },
 };
 
+// ── 16-pwa.js ──
+/* ── PWA: service worker (instal·lació i ús sense connexió) ── */
+const PWA = GL.pwa = {
+  register() {
+    try {
+      if (!('serviceWorker' in navigator)) return;
+      if (!/^https?:$/.test(location.protocol)) return; // des de file:// no es pot registrar
+      navigator.serviceWorker.register('sw.js').catch(e => console.warn('service worker', e));
+    } catch (e) { console.warn('service worker', e); }
+  },
+};
+
 // ── 99-main.js ──
 /* ── Arrencada ───────────────────────────────────────────────── */
 function bindChrome() {
@@ -9009,6 +9021,7 @@ async function boot() {
   try { await FontKit.ready(); } catch (e) { }
   TextKit.cache.clear(); TextKit.metricsCache.clear();
   await Packs.init();
+  PWA.register();
   await Start.open(true);
   // tecla de focus perduda: torna al llenç
   App.stage.addEventListener('pointerdown', () => { if (document.activeElement === document.body) App.stage.focus({ preventScroll: true }); });

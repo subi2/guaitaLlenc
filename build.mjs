@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const VERSION = '0.13.1';
+const VERSION = '0.13.2';
 const root = path.dirname(new URL(import.meta.url).pathname);
 const rd = f => fs.readFileSync(path.join(root, f), 'utf8');
 

@@ -2,7 +2,7 @@
 import sys, json, asyncio
 from playwright.sync_api import sync_playwright
 
-HTML = '/home/claude/llenc/dist/guaitaLlenc-v0.13.0.html'
+HTML = '/home/claude/llenc/dist/guaitaLlenc-v0.13.2.html'
 OUT = '/tmp/claude-0/-home-claude/62c1dd17-dba0-5b5c-a827-496c12ec5967/scratchpad/'
 
 def run(steps, w=1440, h=900):

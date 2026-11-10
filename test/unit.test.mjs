@@ -6,7 +6,7 @@ vc.on('error', e => { if (!/Not implemented/.test(String(e))) console.error(e); 
 vc.on('jsdomError', e => { if (!/Not implemented/.test(String(e.message || e))) console.error(e.message || e); });
 vc.on('warn', m => console.warn(m));
 
-const HTML = fs.readFileSync(new URL('../dist/guaitaLlenc-v0.13.0.html', import.meta.url), 'utf8');
+const HTML = fs.readFileSync(new URL('../dist/guaitaLlenc-v0.13.2.html', import.meta.url), 'utf8');
 let pass = 0, fail = 0;
 const fails = [];
 function ok(c, msg) { if (c) pass++; else { fail++; fails.push(msg); } }
@@ -290,7 +290,7 @@ await test('serialització', () => {
   const data = GL.io.serialize();
   const txt = JSON.stringify(data);
   const back = GL.io.parse(txt);
-  ok(back.format === 'guaitaLlenc' && back.version === '0.13.0', 'format i versió');
+  ok(back.format === 'guaitaLlenc' && back.version === '0.13.2', 'format i versió');
   ok(Object.keys(back.doc.objs).length === Object.keys(GL.store.doc.objs).length, 'mateixos objectes');
   let threw = false; try { GL.io.parse('{"a":1}'); } catch (e) { threw = true; }
   ok(threw, 'rebutja fitxers aliens');

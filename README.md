@@ -6,7 +6,7 @@ a Canva creation app by guaita
 
 Editor gràfic de la suite [Guaita Apps](https://github.com/subi2/guaitaApps): un sol fitxer HTML, sense instal·lació, sense CDN i amb tot el processament en local al navegador. Interfície en català.
 
-## Característiques (v0.13.1)
+## Característiques (v0.13.2)
 
 - Documents d'una o diverses pàgines, amb regles, guies i quadrícula; unitats mm, cm, px, pt, in.
 - Formes, línies, fletxes, ploma amb nodes Bézier, text amb camps variables (`{títol}`, `{autor}`, `{data}`, `{pàgina}`, `{pàgines}`), imatges amb retall i SVG importat com a objectes editables.
@@ -18,7 +18,7 @@ Editor gràfic de la suite [Guaita Apps](https://github.com/subi2/guaitaApps): u
 
 ## Ús
 
-L'app és instal·lable com a aplicació (PWA) des del navegador: `pagesCAT/manifest.webmanifest` (CAT) i `pagesENG/manifest.webmanifest` (ENG).
+L'app és instal·lable com a aplicació (PWA) des del navegador i funciona sense connexió gràcies al service worker (`sw.js`, a cada carpeta de pàgines). Versions: `pagesCAT/` (CAT) i `pagesENG/` (ENG, amb ajuda en anglès; la interfície segueix en català).
 
 Obre `pagesCAT/guaitaLlenc.html` al navegador o visita la pàgina de presentació (`index.html`). Ajuda: `pagesCAT/HLP guaitaLlenc-ajuda.html`.
 
@@ -38,7 +38,7 @@ a Canva creation app by guaita
 
 Graphic editor of the [Guaita Apps](https://github.com/subi2/guaitaApps) suite: a single self-contained HTML file, no install, no CDN, everything processed locally in the browser. The interface is in Catalan only.
 
-### Features (v0.13.1)
+### Features (v0.13.2)
 
 - Single or multi-page documents with rulers, guides and grid; units mm, cm, px, pt, in.
 - Shapes, lines, arrows, pen tool with Bézier nodes, text with variable fields, cropped images and imported SVG as editable objects.

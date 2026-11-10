@@ -1,0 +1,130 @@
+<!--
+  Guaita Apps - Suite d'eines autònomes per a arquitectura, BIM i documentació.
+  Copyright (c) 2026 Jordi Subirós
+  GNU Affero General Public License v3.0
+  See LICENSE file for details
+-->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>guaitaLlenç — User manual</title><link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<style>
+:root{--bg:#0b0d0c;--bg2:#141817;--bg3:#1e2321;--line:#2a312e;--tx:#e7ece9;--tx2:#a3ada8;--accent:#C6FF00;--accent-2:#FF2ECC;--accent-3:#00E5FF;--accent-4:#FFE500;--sans:'Space Grotesk','IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 var(--sans);background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;background-attachment:fixed}
+body:before{content:"";position:fixed;inset:0;background:rgba(11,13,12,.92);z-index:-1}
+.brand{display:flex;align-items:center;gap:10px;font:600 14px var(--mono);letter-spacing:.14em}.brand small{color:var(--tx2);font-weight:400;text-transform:lowercase;letter-spacing:.06em}
+.brand .cells,.fb .cells{display:grid;gap:3px}.brand .cells{grid-template-columns:repeat(2,13px)}.fb .cells{grid-template-columns:repeat(2,6px);gap:2px}
+.cells span{border-radius:2px;display:block}.brand .cells span{width:13px;height:13px}.fb .cells span{width:6px;height:6px;border-radius:1px}
+.cells span:nth-child(1){background:var(--accent)}.cells span:nth-child(2){background:var(--accent-2)}.cells span:nth-child(3){background:var(--accent-3)}.cells span:nth-child(4){background:var(--accent-4)}
+header.hero{max-width:1080px;margin:0 auto;padding:56px 20px 24px}
+.tag{display:inline-block;margin-top:22px;font:12px var(--mono);color:var(--accent);border:1px solid var(--accent);padding:2px 10px;border-radius:99px}
+h1{font-size:clamp(32px,6vw,52px);line-height:1.1;margin:14px 0 10px}h1 b{color:var(--accent)}.lead{color:var(--tx2);font-size:18px;max-width:680px;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:210px 1fr;gap:40px}
+nav.toc{position:sticky;top:20px;align-self:start;display:flex;flex-direction:column;gap:2px;font:13px var(--mono);padding-top:20px}
+nav.toc a{color:var(--tx2);text-decoration:none;padding:4px 10px;border-left:2px solid var(--line)}nav.toc a:hover{color:var(--tx)}nav.toc a.on{color:var(--accent);border-color:var(--accent)}
+section{padding:28px 0;border-top:1px solid var(--line)}
+h2{font:500 12px var(--mono);color:var(--accent);text-transform:uppercase;letter-spacing:.12em;margin:0 0 4px}
+.st{font-size:28px;font-weight:600;margin:0 0 14px;line-height:1.2}h3{font-size:17px;margin:22px 0 6px}
+p{margin:0 0 12px}ul,ol{padding-left:22px;margin:0 0 12px}li{margin:4px 0}
+code,kbd{font:13px var(--mono);background:var(--bg3);border:1px solid var(--line);padding:1px 6px;border-radius:4px}kbd{border-bottom-width:2px}
+.note{border-left:3px solid var(--accent-3);background:var(--bg2);padding:10px 14px;border-radius:4px;margin:14px 0}.note.warn{border-color:var(--accent-4)}.note.stop{border-color:var(--accent-2)}
+table.tbl{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:14px}.tbl th,.tbl td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}.tbl th{background:var(--bg2);font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--tx2)}
+details{border:1px solid var(--line);border-radius:6px;padding:8px 14px;margin:8px 0;background:var(--bg2)}summary{cursor:pointer;font-weight:600}
+footer{max-width:1080px;margin:40px auto 0;padding:24px 20px 48px;border-top:1px solid var(--line);color:var(--tx2);font-size:13px}.fb{display:flex;align-items:center;gap:8px;font:600 11px var(--mono);letter-spacing:.14em;margin-bottom:10px;color:var(--tx)}
+@media(max-width:820px){.wrap{grid-template-columns:1fr}nav.toc{display:none}}
+</style></head><body>
+<header class="hero">
+<div class="brand"><span class="cells"><span></span><span></span><span></span><span></span></span>GUAITA <small>llenç</small></div>
+<span class="tag">User manual · v0.13</span>
+<h1>guaita<b>Llenç</b></h1>
+<p class="lead">Graphic editor for designing pages and documents: posters, leaflets, presentations, infographics and sheets. All work is done locally in the browser.</p>
+</header>
+<div class="wrap">
+<nav class="toc"><a href="#inici">Getting started</a><a href="#interficie">Interface</a><a href="#eines">Tools</a><a href="#propietats">Properties and layers</a><a href="#text">Text and fields</a><a href="#colors">Colours and styles</a><a href="#pagines">Pages</a><a href="#biblioteca">Library and packs</a><a href="#fitxers">Save, import and export</a><a href="#github">Teamwork with GitHub</a><a href="#dreceres">Shortcuts</a><a href="#faq">FAQ</a></nav>
+<main>
+<section id="inici"><h2>01 · Start</h2><div class="st">Getting started</div>
+<ol class="steps"><li>Open <code>guaitaLlenc.html</code> in a modern browser. No installation or connection is needed.</li><li>On the start screen choose a size or a template and press <b>Crea el document</b> (Create the document); you can also open a recent <code>.llenc</code>.</li><li>Draw, type or drag images and SVG onto the canvas.</li><li>Save with <kbd>Ctrl</kbd>+<kbd>S</kbd> and export with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd>.</li></ol>
+<div class="note">Privacy: documents, images and packs are processed in your browser. The app only connects to the Internet if you enable GitHub synchronisation.</div>
+<div class="note warn">The browser keeps automatic copies of your work for recovery, but this does not replace the file: save the <code>.llenc</code> often.</div>
+<p><i>The interface and menu labels are in Catalan; this manual gives them in brackets where useful.</i></p></section>
+
+<section id="interficie"><h2>02 · Layout</h2><div class="st">Interface</div>
+<table class="tbl"><tr><th>Area</th><th>What it contains</th></tr>
+<tr><td>Top bar</td><td>Cascading menus with all commands, document name, save indicator, GitHub button, view (Page / All), zoom and Export.</td></tr>
+<tr><td>Toolbar (left)</td><td>Select, hand, shapes, lines, pen, text and image.</td></tr>
+<tr><td>Canvas</td><td>Rulers, guides, grid and pages. Zoom with <kbd>Ctrl</kbd>+wheel; the hand or space moves the view.</td></tr>
+<tr><td>Right panel</td><td>Properties of the selection and layers.</td></tr>
+<tr><td>Library</td><td>Key <kbd>B</kbd>: templates, images and symbols; it shifts the canvas and rulers.</td></tr></table>
+<p>The <b>command palette</b> (<kbd>Ctrl</kbd>+<kbd>K</kbd>) searches any command. <b>Focus mode</b> (<kbd>Tab</kbd>) hides the panels.</p></section>
+
+<section id="eines"><h2>03 · Drawing</h2><div class="st">Tools</div>
+<table class="tbl"><tr><th>Tool</th><th>Key</th><th>Use</th></tr>
+<tr><td>Select</td><td><kbd>V</kbd></td><td>Select, move, resize and rotate; multiple selection box; <kbd>Alt</kbd>+drag duplicates; smart guides.</td></tr>
+<tr><td>Hand</td><td><kbd>H</kbd></td><td>Pan the view.</td></tr>
+<tr><td>Rectangle / Ellipse</td><td><kbd>R</kbd> / <kbd>O</kbd></td><td>Drag; <kbd>Shift</kbd> keeps the proportions.</td></tr>
+<tr><td>Polygon / Star</td><td>dropdown</td><td>Regular shapes with adjustable number of sides or points.</td></tr>
+<tr><td>Line / Arrow</td><td><kbd>L</kbd> / <kbd>Shift</kbd>+<kbd>L</kbd></td><td>Segments and arrows.</td></tr>
+<tr><td>Pen</td><td><kbd>P</kbd></td><td>Click to add a node; drag to pull the Bézier handle; click the first node to close. <kbd>Enter</kbd> edits nodes.</td></tr>
+<tr><td>Text</td><td><kbd>T</kbd></td><td>Click or drag to create a text box.</td></tr>
+<tr><td>Image</td><td><kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>K</kbd></td><td>Inserts an image; <kbd>Enter</kbd> starts cropping.</td></tr></table>
+<p>With several objects selected, use <b>Objecte → Alinea / Distribueix</b> (Object → Align / Distribute), <b>Agrupa</b> (Group, <kbd>Ctrl</kbd>+<kbd>G</kbd>), stacking order, flips and <b>Converteix a trajecte</b> (Convert to path).</p></section>
+
+<section id="propietats"><h2>04 · Objects</h2><div class="st">Properties and layers</div>
+<p>The right panel shows position, size and rotation (they accept expressions and units, such as <code>10mm+2cm</code>), fill (colour, linear gradient), stroke, opacity, blend mode, shadow and blur. Copy and paste a style with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd> / <kbd>V</kbd>.</p>
+<p>The <b>Layers</b> tab (Capes) shows the object tree: drag to reorder, and use the eye and padlock to hide or lock. <kbd>F2</kbd> renames.</p></section>
+
+<section id="text"><h2>05 · Text</h2><div class="st">Text and variable fields</div>
+<p>Double-click (or press <kbd>Enter</kbd>) to edit. Text boxes grow automatically. You can insert <b>variable fields</b> that update by themselves: <code>{títol}</code> (title), <code>{autor}</code> (author), <code>{data}</code> (date), <code>{pàgina}</code> (page) and <code>{pàgines}</code> (pages), plus your own fields (Insereix → Camp variable).</p>
+<p>Built-in typefaces: IBM Plex (Sans, Serif, Mono, Condensed), Inter, Montserrat, Fredoka and Baloo 2; they do not depend on the Internet.</p></section>
+
+<section id="colors"><h2>06 · Colour</h2><div class="st">Colours and styles</div>
+<p><b>Linked colours</b> and <b>text styles</b> are defined in the document (Fitxer → Colors i estils del document; File → Colours and styles of the document): change one and every object that uses it is updated. Fitxer → <b>Paleta del document</b> (File → Document palette) applies complete palettes, including those from packs.</p></section>
+
+<section id="pagines"><h2>07 · Pages</h2><div class="st">Pages</div>
+<p>A document can have one page or many, each with its own size and background. <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> adds a page; <kbd>PageUp</kbd>/<kbd>PageDown</kbd> move between them. The <b>All</b> view (Totes) shows them together. Guides are created by dragging from the rulers.</p></section>
+
+<section id="biblioteca"><h2>08 · Content</h2><div class="st">Library and packs</div>
+<p>The Library (<kbd>B</kbd>) holds templates and symbols, searchable by category. One click inserts a symbol as an editable group. <b>Insereix → Els meus</b> (Insert → My items) saves your own templates and symbols.</p>
+<p><b>Packs</b> (<code>.llencpack.json</code>) extend the library: <i>kids</i> (ages 6–16), <i>business</i> (empresa) and <i>architecture and engineering</i> (sections, layers, legends, signage, building services). Load them from Insereix → Paquets de biblioteca (Insert → Library packs), from a file or a web address; they stay in the browser.</p>
+<p><b>Kids mode</b> (Mode infantil, under Visualitza / View) enlarges the interface and shows friendlier typefaces.</p></section>
+
+<section id="fitxers"><h2>09 · Files</h2><div class="st">Save, import and export</div>
+<table class="tbl"><tr><th>Action</th><th>Detail</th></tr>
+<tr><td>Save</td><td><code>.llenc</code> (JSON). <kbd>Ctrl</kbd>+<kbd>S</kbd>; with disk access the same file is updated.</td></tr>
+<tr><td>Import</td><td>PNG, JPG, WebP, GIF and SVG (SVG files become editable objects); drag or paste from the clipboard.</td></tr>
+<tr><td>Export</td><td>PNG, JPG, SVG, ZIP of all pages and PDF for printing (<kbd>Ctrl</kbd>+<kbd>P</kbd>).</td></tr>
+<tr><td>Editable SVG / PNG</td><td>The document is embedded in them: you can reopen it and keep editing.</td></tr></table></section>
+
+<section id="github"><h2>10 · Team</h2><div class="st">Teamwork with GitHub</div>
+<p>Work as a team asynchronously on a GitHub repository, with history and authorship.</p>
+<ol class="steps"><li><b>Fitxer → GitHub → Connexió amb GitHub</b> (File → GitHub → GitHub connection): paste a fine-grained <i>token</i> with read and write permission for <i>Contents</i> on that repository only, and enter <code>user/repository</code>, branch and folder. Test the connection and save.</li><li><b>Sincronitza</b> (Synchronise, <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd>): the first time it links and uploads the document; afterwards it receives other people's changes and uploads yours.</li><li>A colleague can use <b>Obre des de GitHub</b> (Open from GitHub) to download the document.</li></ol>
+<p>Each document is a folder with <code>doc.llenc</code> (snapshot) and <code>ops/&lt;editor&gt;.jsonl</code> (each editor's operations). If two people change the same property at the same time, the last change wins; everything else is merged without conflicts.</p>
+<h3>Version history</h3>
+<p>It lists versions with author, date and note; it allows <b>preview</b>, <b>comparison</b> of two versions (or one with the current one) and <b>restore</b>. Restoring creates a new change that can be undone and deletes nothing. It also shows how many objects each author last touched.</p>
+<div class="note">The cloud icon in the top bar shows the status: grey not linked, green synchronised, yellow with pending changes, red with an error.</div>
+<div class="note warn">The token is only sent to <code>api.github.com</code>. It is not remembered by default: tick «Recorda el token» (Remember the token) only on a trusted computer.</div></section>
+
+<section id="dreceres"><h2>11 · Keyboard</h2><div class="st">Main shortcuts</div>
+<table class="tbl"><tr><th>Shortcut</th><th>Action</th><th>Shortcut</th><th>Action</th></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Shift</kbd>+<kbd>Z</kbd></td><td>Undo / Redo</td><td><kbd>Ctrl</kbd>+<kbd>D</kbd></td><td>Duplicate</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd> / <kbd>X</kbd> / <kbd>V</kbd></td><td>Copy / Cut / Paste</td><td><kbd>Ctrl</kbd>+<kbd>A</kbd></td><td>Select all</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>G</kbd></td><td>Group</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd></td><td>Ungroup</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>1</kbd> / <kbd>2</kbd> / <kbd>0</kbd></td><td>Fit page / selection / 100 %</td><td><kbd>Shift</kbd>+<kbd>R</kbd></td><td>Rulers</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd></td><td>Lock</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd></td><td>Hide</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>]</kbd> / <kbd>[</kbd></td><td>Bring forward / Send back</td><td><kbd>Ctrl</kbd>+<kbd>\</kbd></td><td>Right panel</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>K</kbd></td><td>Command palette</td><td><kbd>Shift</kbd>+<kbd>/</kbd></td><td>All shortcuts</td></tr></table></section>
+
+<section id="faq"><h2>12 · Help</h2><div class="st">Frequently asked questions</div>
+<details><summary>I closed the browser without saving. Can I recover the document?</summary><p>Yes: the start screen lists the documents saved automatically in this browser. If you have cleared the browser data, you cannot.</p></details>
+<details><summary>Why does the PDF go through the print dialogue?</summary><p>The PDF is generated by the browser's print function («Save as PDF»), which keeps text and vector graphics. A built-in generator is planned for a later version.</p></details>
+<details><summary>Synchronisation says «Conflicte» (conflict).</summary><p>Someone uploaded changes while you were synchronising. The app merges again and retries automatically; if it persists, synchronise again.</p></details>
+<details><summary>I cannot see an image from a colleague after synchronising.</summary><p>Image data travels in the snapshot: wait until your colleague has finished synchronising, then press Synchronise again.</p></details></section>
+</main></div>
+<footer><div class="fb"><span class="cells"><span></span><span></span><span></span><span></span></span>GUAITA · LLENÇ</div>
+<p>SBS BIM Consulting 2026</p>
+<p>Guaita Apps es distribueix «tal com és», sense cap garantia. Les eines estan pensades desde la recerca i com a suport tècnic i educatiu; la verificació dels resultats i la responsabilitat derivada del seu ús recauen únicament sobre l'usuari final.</p>
+</footer>
+<script>
+const links=[...document.querySelectorAll('nav.toc a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+addEventListener('scroll',()=>{let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<140)i=k});links.forEach((a,k)=>a.classList.toggle('on',k===i))},{passive:true});
+</script></body></html>
