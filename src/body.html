@@ -1,0 +1,84 @@
+<div id="app" class="no-doc">
+  <header id="topbar">
+    <div class="brand" title="guaitaLlenç %%VERSION%%">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M11 21 L21 11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span class="brand-name">guaita<b>Llenç</b></span>
+    </div>
+    <nav id="menubar" role="menubar" aria-label="Menú principal"></nav>
+    <div class="top-center">
+      <input id="docName" class="doc-name" spellcheck="false" aria-label="Nom del document" value="Sense títol">
+      <span id="saveState" class="save-state" data-tip="Estat del desat"></span>
+      <button id="ghBtn" class="icon-btn sm gh-btn off" data-tip="GitHub" aria-label="GitHub"></button>
+    </div>
+    <div class="top-right">
+      <div class="seg" id="viewSeg" role="radiogroup" aria-label="Vista">
+        <button data-view="page" class="on" data-tip="Pàgina activa">Pàgina</button>
+        <button data-view="all" data-tip="Totes les pàgines">Totes</button>
+      </div>
+      <button id="zoomBtn" class="zoom-btn" data-tip="Zoom">100%<svg viewBox="0 0 10 10"><path d="M2 4l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></button>
+      <button id="exportBtn" class="btn primary" data-cmd="file.export">Exporta</button>
+    </div>
+  </header>
+
+  <aside id="toolbar" aria-label="Eines"></aside>
+
+  <main id="stageWrap">
+    <div id="stage" tabindex="0" aria-label="Llenç">
+      <div id="pageShadows"></div>
+      <svg id="world" xmlns="http://www.w3.org/2000/svg">
+        <defs id="assetDefs"></defs>
+        <g id="vp"><g id="pagesLayer"></g></g>
+      </svg>
+      <svg id="overlay" xmlns="http://www.w3.org/2000/svg"></svg>
+      <textarea id="textEditor" spellcheck="false" autocomplete="off" aria-label="Edició de text"></textarea>
+      <div id="emptyHint" class="empty-hint" hidden>
+        <div class="eh-title">Pàgina en blanc</div>
+        <div class="eh-keys"><kbd>R</kbd> rectangle <kbd>O</kbd> el·lipse <kbd>T</kbd> text <kbd>P</kbd> ploma</div>
+        <div class="eh-sub">Arrossega aquí imatges o fitxers SVG · <kbd>Ctrl</kbd><kbd>K</kbd> per buscar qualsevol ordre</div>
+      </div>
+    </div>
+    <canvas id="rulerTop" class="ruler"></canvas>
+    <canvas id="rulerLeft" class="ruler"></canvas>
+    <div id="rulerCorner" class="ruler-corner" data-tip="Unitats del document"></div>
+    <div id="dropVeil" class="drop-veil" hidden><div>Deixa anar per importar</div></div>
+  </main>
+
+  <aside id="rightPanel">
+    <section id="propsPanel" class="panel">
+      <div class="panel-head"><span>Propietats</span></div>
+      <div id="props" class="panel-body"></div>
+    </section>
+    <div id="panelSplit" class="splitter" aria-hidden="true"></div>
+    <section id="layersPanel" class="panel">
+      <div class="panel-head"><span>Capes</span><span class="ph-actions" id="layersActions"></span></div>
+      <div id="layers" class="panel-body" role="tree"></div>
+    </section>
+  </aside>
+  <div id="rightResize" class="v-resize" aria-hidden="true"></div>
+
+  <section id="pagesStrip" hidden aria-label="Pàgines">
+    <div class="strip-head"><span>Pàgines</span><button class="icon-btn sm" data-cmd="page.add" data-tip="Pàgina nova"></button></div>
+    <div id="pagesList" class="pages-list"></div>
+  </section>
+
+  <footer id="statusbar">
+    <span id="stHint" class="st-hint"></span>
+    <span class="st-sep"></span>
+    <span id="stPos" class="st-mono" data-tip="Posició del cursor">X 0 · Y 0</span>
+    <span id="stSel" class="st-mono"></span>
+    <span class="st-grow"></span>
+    <span class="st-pages">
+      <button class="icon-btn xs" data-cmd="page.prev" data-tip="Pàgina anterior" id="stPrev"></button>
+      <button id="stPage" class="st-page" data-tip="Mostra el panell de pàgines">Pàgina 1 / 1</button>
+      <button class="icon-btn xs" data-cmd="page.next" data-tip="Pàgina següent" id="stNext"></button>
+      <button class="icon-btn xs" data-cmd="page.add" data-tip="Pàgina nova" id="stAdd"></button>
+    </span>
+    <span class="st-sep"></span>
+    <button id="stUnit" class="st-unit" data-tip="Unitats">mm</button>
+    <span id="stZoom" class="st-mono">100%</span>
+  </footer>
+</div>
+
+<div id="layerRoot"></div>
+<div id="printRoot" aria-hidden="true"></div>
+<input type="file" id="fileInput" hidden>

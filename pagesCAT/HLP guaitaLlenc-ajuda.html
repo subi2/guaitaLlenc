@@ -1,0 +1,128 @@
+<!--
+  Guaita Apps - Suite d'eines autònomes per a arquitectura, BIM i documentació.
+  Copyright (c) 2026 Jordi Subirós
+  GNU Affero General Public License v3.0
+  See LICENSE file for details
+-->
+<!DOCTYPE html>
+<html lang="ca"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>guaitaLlenç — Manual d'ús</title><link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<style>
+:root{--bg:#0b0d0c;--bg2:#141817;--bg3:#1e2321;--line:#2a312e;--tx:#e7ece9;--tx2:#a3ada8;--accent:#C6FF00;--accent-2:#FF2ECC;--accent-3:#00E5FF;--accent-4:#FFE500;--sans:'Space Grotesk','IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 var(--sans);background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;background-attachment:fixed}
+body:before{content:"";position:fixed;inset:0;background:rgba(11,13,12,.92);z-index:-1}
+.brand{display:flex;align-items:center;gap:10px;font:600 14px var(--mono);letter-spacing:.14em}.brand small{color:var(--tx2);font-weight:400;text-transform:lowercase;letter-spacing:.06em}
+.brand .cells,.fb .cells{display:grid;gap:3px}.brand .cells{grid-template-columns:repeat(2,13px)}.fb .cells{grid-template-columns:repeat(2,6px);gap:2px}
+.cells span{border-radius:2px;display:block}.brand .cells span{width:13px;height:13px}.fb .cells span{width:6px;height:6px;border-radius:1px}
+.cells span:nth-child(1){background:var(--accent)}.cells span:nth-child(2){background:var(--accent-2)}.cells span:nth-child(3){background:var(--accent-3)}.cells span:nth-child(4){background:var(--accent-4)}
+header.hero{max-width:1080px;margin:0 auto;padding:56px 20px 24px}
+.tag{display:inline-block;margin-top:22px;font:12px var(--mono);color:var(--accent);border:1px solid var(--accent);padding:2px 10px;border-radius:99px}
+h1{font-size:clamp(32px,6vw,52px);line-height:1.1;margin:14px 0 10px}h1 b{color:var(--accent)}.lead{color:var(--tx2);font-size:18px;max-width:680px;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:210px 1fr;gap:40px}
+nav.toc{position:sticky;top:20px;align-self:start;display:flex;flex-direction:column;gap:2px;font:13px var(--mono);padding-top:20px}
+nav.toc a{color:var(--tx2);text-decoration:none;padding:4px 10px;border-left:2px solid var(--line)}nav.toc a:hover{color:var(--tx)}nav.toc a.on{color:var(--accent);border-color:var(--accent)}
+section{padding:28px 0;border-top:1px solid var(--line)}
+h2{font:500 12px var(--mono);color:var(--accent);text-transform:uppercase;letter-spacing:.12em;margin:0 0 4px}
+.st{font-size:28px;font-weight:600;margin:0 0 14px;line-height:1.2}h3{font-size:17px;margin:22px 0 6px}
+p{margin:0 0 12px}ul,ol{padding-left:22px;margin:0 0 12px}li{margin:4px 0}
+code,kbd{font:13px var(--mono);background:var(--bg3);border:1px solid var(--line);padding:1px 6px;border-radius:4px}kbd{border-bottom-width:2px}
+.note{border-left:3px solid var(--accent-3);background:var(--bg2);padding:10px 14px;border-radius:4px;margin:14px 0}.note.warn{border-color:var(--accent-4)}.note.stop{border-color:var(--accent-2)}
+table.tbl{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:14px}.tbl th,.tbl td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}.tbl th{background:var(--bg2);font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--tx2)}
+details{border:1px solid var(--line);border-radius:6px;padding:8px 14px;margin:8px 0;background:var(--bg2)}summary{cursor:pointer;font-weight:600}
+footer{max-width:1080px;margin:40px auto 0;padding:24px 20px 48px;border-top:1px solid var(--line);color:var(--tx2);font-size:13px}.fb{display:flex;align-items:center;gap:8px;font:600 11px var(--mono);letter-spacing:.14em;margin-bottom:10px;color:var(--tx)}
+@media(max-width:820px){.wrap{grid-template-columns:1fr}nav.toc{display:none}}
+</style></head><body>
+<header class="hero">
+<div class="brand"><span class="cells"><span></span><span></span><span></span><span></span></span>GUAITA <small>llenç</small></div>
+<span class="tag">Manual d'ús · v0.13</span>
+<h1>guaita<b>Llenç</b></h1>
+<p class="lead">Editor gràfic per dissenyar pàgines i documents: cartells, tríptics, presentacions, infografies i làmines. Tot el treball es fa localment al navegador.</p>
+</header>
+<div class="wrap">
+<nav class="toc"><a href="#inici">Primers passos</a><a href="#interficie">Interfície</a><a href="#eines">Eines</a><a href="#propietats">Propietats i capes</a><a href="#text">Text i camps</a><a href="#colors">Colors i estils</a><a href="#pagines">Pàgines</a><a href="#biblioteca">Biblioteca i paquets</a><a href="#fitxers">Desar, importar i exportar</a><a href="#github">Col·laboració amb GitHub</a><a href="#dreceres">Dreceres</a><a href="#faq">Preguntes freqüents</a></nav>
+<main>
+<section id="inici"><h2>01 · Començar</h2><div class="st">Primers passos</div>
+<ol class="steps"><li>Obre <code>guaitaLlenc.html</code> en un navegador modern. No cal instal·lar res ni tenir connexió.</li><li>A la pantalla d'inici tria una mida o una plantilla i prem <b>Crea el document</b>; també pots obrir un <code>.llenc</code> recent.</li><li>Dibuixa, escriu o arrossega imatges i SVG sobre el llenç.</li><li>Desa amb <kbd>Ctrl</kbd>+<kbd>S</kbd> i exporta amb <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd>.</li></ol>
+<div class="note">Privadesa: els documents, imatges i paquets es processen al teu navegador. Només es connecta a Internet si tu actives la sincronització amb GitHub.</div>
+<div class="note warn">El navegador desa automàticament còpies del treball per recuperar-lo, però no substitueix el fitxer: desa el <code>.llenc</code> sovint.</div></section>
+
+<section id="interficie"><h2>02 · Entorn</h2><div class="st">Interfície</div>
+<table class="tbl"><tr><th>Zona</th><th>Què hi trobes</th></tr>
+<tr><td>Barra superior</td><td>Menús en cascada amb totes les ordres, nom del document, indicador de desat, botó de GitHub, vista (Pàgina / Totes), zoom i Exporta.</td></tr>
+<tr><td>Barra d'eines (esquerra)</td><td>Selecció, mà, formes, línies, ploma, text i imatge.</td></tr>
+<tr><td>Llenç</td><td>Regles, guies, quadrícula i pàgines. Zoom amb <kbd>Ctrl</kbd>+roda; la mà o l'espai mou la vista.</td></tr>
+<tr><td>Panell dret</td><td>Propietats de la selecció i capes.</td></tr>
+<tr><td>Biblioteca</td><td>Tecla <kbd>B</kbd>: plantilles, imatges i símbols; desplaça el llenç i les regles.</td></tr></table>
+<p>La <b>paleta d'ordres</b> (<kbd>Ctrl</kbd>+<kbd>K</kbd>) cerca qualsevol ordre. El <b>mode focus</b> (<kbd>Tab</kbd>) amaga els panells.</p></section>
+
+<section id="eines"><h2>03 · Dibuix</h2><div class="st">Eines</div>
+<table class="tbl"><tr><th>Eina</th><th>Tecla</th><th>Ús</th></tr>
+<tr><td>Selecció</td><td><kbd>V</kbd></td><td>Selecciona, mou, redimensiona i gira; marc de selecció múltiple; <kbd>Alt</kbd>+arrossega duplica; guies intel·ligents.</td></tr>
+<tr><td>Mà</td><td><kbd>H</kbd></td><td>Desplaça la vista.</td></tr>
+<tr><td>Rectangle / El·lipse</td><td><kbd>R</kbd> / <kbd>O</kbd></td><td>Arrossega; <kbd>Shift</kbd> manté la proporció.</td></tr>
+<tr><td>Polígon / Estrella</td><td>desplegable</td><td>Formes regulars amb nombre de costats o puntes ajustable.</td></tr>
+<tr><td>Línia / Fletxa</td><td><kbd>L</kbd> / <kbd>Shift</kbd>+<kbd>L</kbd></td><td>Segments i fletxes.</td></tr>
+<tr><td>Ploma</td><td><kbd>P</kbd></td><td>Clic per node; arrossega per tirar el tirador Bézier; tanca clicant el primer node. <kbd>Enter</kbd> edita nodes.</td></tr>
+<tr><td>Text</td><td><kbd>T</kbd></td><td>Clic o arrossega per crear un quadre de text.</td></tr>
+<tr><td>Imatge</td><td><kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>K</kbd></td><td>Insereix una imatge; <kbd>Enter</kbd> activa el retall.</td></tr></table>
+<p>Amb diversos objectes seleccionats, <b>Objecte → Alinea / Distribueix</b>, <b>Agrupa</b> (<kbd>Ctrl</kbd>+<kbd>G</kbd>), ordre de apilament, reflexions i <b>Converteix a trajecte</b>.</p></section>
+
+<section id="propietats"><h2>04 · Objectes</h2><div class="st">Propietats i capes</div>
+<p>El panell dret mostra posició, mida i gir (accepten expressions i unitats, com <code>10mm+2cm</code>), emplenament (color, degradat lineal), traç, opacitat, mescla, ombra i desenfocament. Copia i enganxa l'estil amb <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd> / <kbd>V</kbd>.</p>
+<p>La pestanya <b>Capes</b> mostra l'arbre d'objectes: arrossega per reordenar, i usa l'ull i el cadenat per amagar o bloquejar. <kbd>F2</kbd> reanomena.</p></section>
+
+<section id="text"><h2>05 · Text</h2><div class="st">Text i camps variables</div>
+<p>Fes doble clic (o <kbd>Enter</kbd>) per editar. Els quadres creixen automàticament segons el text. Pots inserir <b>camps variables</b> que s'actualitzen soles: <code>{títol}</code>, <code>{autor}</code>, <code>{data}</code>, <code>{pàgina}</code>, <code>{pàgines}</code>, a més dels camps propis (Insereix → Camp variable).</p>
+<p>Tipografies incorporades: IBM Plex (Sans, Serif, Mono, Condensed), Inter, Montserrat, Fredoka i Baloo 2; no depenen d'Internet.</p></section>
+
+<section id="colors"><h2>06 · Color</h2><div class="st">Colors i estils</div>
+<p>Els <b>colors enllaçats</b> i els <b>estils de text</b> es defineixen al document (Fitxer → Colors i estils del document): si en canvies un, s'actualitzen tots els objectes que l'usen. Fitxer → <b>Paleta del document</b> aplica paletes de colors completes, incloses les dels paquets.</p></section>
+
+<section id="pagines"><h2>07 · Pàgines</h2><div class="st">Pàgines</div>
+<p>Un document pot tenir una pàgina o moltes, cadascuna amb la seva mida i fons. <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> afegeix una pàgina; <kbd>PàgAnt</kbd>/<kbd>PàgSeg</kbd> hi naveguen. La vista <b>Totes</b> les mostra juntes. Les guies es creen arrossegant des de les regles.</p></section>
+
+<section id="biblioteca"><h2>08 · Contingut</h2><div class="st">Biblioteca i paquets</div>
+<p>La Biblioteca (<kbd>B</kbd>) té plantilles i símbols amb cerca per categories. Un clic insereix un símbol com a grup editable. <b>Insereix → Els meus</b> desa plantilles i símbols propis.</p>
+<p>Els <b>paquets</b> (<code>.llencpack.json</code>) amplien la biblioteca: <i>infantil</i> (6–16 anys), <i>empresa</i> i <i>arquitectura i enginyeria</i> (seccions, capes, llegendes, senyalètica, instal·lacions). Es carreguen des d'Insereix → Paquets de biblioteca, per fitxer o per adreça web, i queden al navegador.</p>
+<p>El <b>mode infantil</b> (Visualitza) amplia la mida de la interfície i mostra tipografies amables.</p></section>
+
+<section id="fitxers"><h2>09 · Fitxers</h2><div class="st">Desar, importar i exportar</div>
+<table class="tbl"><tr><th>Acció</th><th>Detall</th></tr>
+<tr><td>Desa</td><td><code>.llenc</code> (JSON). <kbd>Ctrl</kbd>+<kbd>S</kbd>; amb accés al disc, s'actualitza el mateix fitxer.</td></tr>
+<tr><td>Importa</td><td>PNG, JPG, WebP, GIF i SVG (els SVG es converteixen en objectes editables); arrossega o enganxa des del porta-retalls.</td></tr>
+<tr><td>Exporta</td><td>PNG, JPG, SVG, ZIP de totes les pàgines i PDF per impressió (<kbd>Ctrl</kbd>+<kbd>P</kbd>).</td></tr>
+<tr><td>SVG / PNG editable</td><td>Hi va incrustat el document: pots tornar-lo a obrir i continuar editant.</td></tr></table></section>
+
+<section id="github"><h2>10 · Equip</h2><div class="st">Col·laboració amb GitHub</div>
+<p>Treballa en equip de manera asíncrona sobre un repositori de GitHub, amb historial i autoria.</p>
+<ol class="steps"><li><b>Fitxer → GitHub → Connexió amb GitHub</b>: enganxa un <i>token</i> «fine-grained» amb permís de lectura i escriptura de <i>Contents</i> només sobre el repositori, i indica <code>usuari/repositori</code>, branca i carpeta. Prova la connexió i desa.</li><li><b>Sincronitza</b> (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd>): la primera vegada vincula el document i el puja; les següents rep els canvis dels altres i puja els teus.</li><li>Un company pot fer <b>Obre des de GitHub</b> per baixar el document.</li></ol>
+<p>Cada document és una carpeta amb <code>doc.llenc</code> (instantània) i <code>ops/&lt;editor&gt;.jsonl</code> (operacions de cada editor). Si dues persones canvien la mateixa propietat alhora, guanya l'últim canvi; la resta es combina sense conflictes.</p>
+<h3>Historial de versions</h3>
+<p>Mostra les versions amb autor, data i nota; permet <b>vista prèvia</b>, <b>comparar</b> dues versions (o una amb l'actual) i <b>restaurar</b>. Restaurar crea un canvi nou que es pot desfer i no esborra res. També indica quants objectes ha tocat per última vegada cada autor.</p>
+<div class="note">La icona de núvol de la barra superior indica l'estat: gris sense vincular, verda sincronitzat, groga amb canvis pendents, vermella amb error.</div>
+<div class="note warn">El token només s'envia a <code>api.github.com</code>. Per defecte no es recorda: marca «Recorda el token» només en un equip de confiança.</div></section>
+
+<section id="dreceres"><h2>11 · Teclat</h2><div class="st">Dreceres principals</div>
+<table class="tbl"><tr><th>Drecera</th><th>Acció</th><th>Drecera</th><th>Acció</th></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Shift</kbd>+<kbd>Z</kbd></td><td>Desfés / Refés</td><td><kbd>Ctrl</kbd>+<kbd>D</kbd></td><td>Duplica</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd> / <kbd>X</kbd> / <kbd>V</kbd></td><td>Copia / Retalla / Enganxa</td><td><kbd>Ctrl</kbd>+<kbd>A</kbd></td><td>Selecciona-ho tot</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>G</kbd></td><td>Agrupa</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd></td><td>Desagrupa</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>1</kbd> / <kbd>2</kbd> / <kbd>0</kbd></td><td>Ajusta pàgina / selecció / 100 %</td><td><kbd>Shift</kbd>+<kbd>R</kbd></td><td>Regles</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd></td><td>Bloqueja</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd></td><td>Amaga</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>]</kbd> / <kbd>[</kbd></td><td>Endavant / Enrere</td><td><kbd>Ctrl</kbd>+<kbd>\</kbd></td><td>Panell dret</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>K</kbd></td><td>Paleta d'ordres</td><td><kbd>Shift</kbd>+<kbd>/</kbd></td><td>Totes les dreceres</td></tr></table></section>
+
+<section id="faq"><h2>12 · Ajuda</h2><div class="st">Preguntes freqüents</div>
+<details><summary>He tancat el navegador sense desar. Puc recuperar el document?</summary><p>Sí, a la pantalla d'inici surten els documents desats automàticament en aquest navegador. Si has netejat les dades del navegador, no.</p></details>
+<details><summary>Per què el PDF passa pel diàleg d'impressió?</summary><p>El PDF es genera amb la impressió del navegador («Desa com a PDF»), que manté el text i el vectorial. Un generador propi està previst per a una versió posterior.</p></details>
+<details><summary>La sincronització diu «Conflicte».</summary><p>Algú ha pujat canvis mentre sincronitzaves. L'app torna a fusionar i reintenta automàticament; si persisteix, torna a sincronitzar.</p></details>
+<details><summary>No veig una imatge d'un company després de sincronitzar.</summary><p>Les dades de les imatges viajen a la instantània: espera que el company hagi acabat de sincronitzar i torna a prémer Sincronitza.</p></details></section>
+</main></div>
+<footer><div class="fb"><span class="cells"><span></span><span></span><span></span><span></span></span>GUAITA · LLENÇ</div>
+<p>SBS BIM Consulting 2026</p>
+<p>Guaita Apps es distribueix «tal com és», sense cap garantia. Les eines estan pensades desde la recerca i com a suport tècnic i educatiu; la verificació dels resultats i la responsabilitat derivada del seu ús recauen únicament sobre l'usuari final.</p></footer>
+<script>
+const links=[...document.querySelectorAll('nav.toc a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+addEventListener('scroll',()=>{let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<140)i=k});links.forEach((a,k)=>a.classList.toggle('on',k===i))},{passive:true});
+</script></body></html>

@@ -1,0 +1,21 @@
+import sys, json
+sys.path.insert(0, '/home/claude/llenc/test')
+from shot import run, OUT
+PACK = open('/home/claude/llenc/packs/infantil.llencpack.json').read()
+def s(pg):
+    pg.evaluate("async (t) => { await GL.packs.install(JSON.parse(t), true); }", PACK)
+    pg.click('.st-kids input'); pg.wait_for_timeout(1500)
+    pg.screenshot(path=OUT + 'k_start.png')
+    pg.click('.tpl-card > span >> text=Festa de l\'escola'); pg.wait_for_timeout(800)
+    pg.screenshot(path=OUT + 'k_doc.png')
+    pg.click('.lib-chips button >> text=Animals'); pg.wait_for_timeout(300)
+    pg.click('.sym[data-tip="Panda"]'); pg.wait_for_timeout(300)
+    pg.screenshot(path=OUT + 'k_sym.png')
+    pg.click('.lib-tabs button >> text=Plantilles'); pg.wait_for_timeout(200)
+    pg.click('.lib-chips button >> text=Tríptics i díptics'); pg.wait_for_timeout(2500)
+    pg.screenshot(path=OUT + 'k_tpls.png')
+    pg.click('.tpl-card > span >> text=El sistema solar'); pg.wait_for_timeout(800)
+    pg.click('#viewSeg button >> text=Totes'); pg.wait_for_timeout(400)
+    pg.screenshot(path=OUT + 'k_triptic.png')
+    print(pg.evaluate("() => [GL.store.pagesSorted().length, Object.keys(GL.store.doc.objs).length]"))
+print('\n'.join(run([s])) or 'sense errors')
