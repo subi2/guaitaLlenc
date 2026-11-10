@@ -1,0 +1,19 @@
+{
+  "name": "guaitaLlenç",
+  "short_name": "guaitaLlenç",
+  "description": "Graphic editor for pages, posters and sheets. Guaita Apps. Interface in Catalan.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "./guaitaLlenc.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b0d0c",
+  "theme_color": "#0b0d0c",
+  "categories": ["graphics", "productivity", "education"],
+  "icons": [
+    { "src": "../icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "../icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "../icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

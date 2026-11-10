@@ -6,7 +6,7 @@ a Canva creation app by guaita
 
 Editor gràfic de la suite [Guaita Apps](https://github.com/subi2/guaitaApps): un sol fitxer HTML, sense instal·lació, sense CDN i amb tot el processament en local al navegador. Interfície en català.
 
-## Característiques (v0.13.0)
+## Característiques (v0.13.1)
 
 - Documents d'una o diverses pàgines, amb regles, guies i quadrícula; unitats mm, cm, px, pt, in.
 - Formes, línies, fletxes, ploma amb nodes Bézier, text amb camps variables (`{títol}`, `{autor}`, `{data}`, `{pàgina}`, `{pàgines}`), imatges amb retall i SVG importat com a objectes editables.
@@ -17,6 +17,8 @@ Editor gràfic de la suite [Guaita Apps](https://github.com/subi2/guaitaApps): u
 - Desfés/refés, paleta d'ordres (`Ctrl+K`) i menús desplegables amb totes les eines.
 
 ## Ús
+
+L'app és instal·lable com a aplicació (PWA) des del navegador: `pagesCAT/manifest.webmanifest` (CAT) i `pagesENG/manifest.webmanifest` (ENG).
 
 Obre `pagesCAT/guaitaLlenc.html` al navegador o visita la pàgina de presentació (`index.html`). Ajuda: `pagesCAT/HLP guaitaLlenc-ajuda.html`.
 
@@ -36,7 +38,7 @@ a Canva creation app by guaita
 
 Graphic editor of the [Guaita Apps](https://github.com/subi2/guaitaApps) suite: a single self-contained HTML file, no install, no CDN, everything processed locally in the browser. The interface is in Catalan only.
 
-### Features (v0.13.0)
+### Features (v0.13.1)
 
 - Single or multi-page documents with rulers, guides and grid; units mm, cm, px, pt, in.
 - Shapes, lines, arrows, pen tool with Bézier nodes, text with variable fields, cropped images and imported SVG as editable objects.
@@ -47,6 +49,8 @@ Graphic editor of the [Guaita Apps](https://github.com/subi2/guaitaApps) suite: 
 - Undo/redo, command palette (`Ctrl+K`) and full cascading menus.
 
 ### Usage
+
+The app can be installed as a PWA from the browser: `pagesENG/manifest.webmanifest` (manifest in English; the interface stays in Catalan).
 
 Open `pagesCAT/guaitaLlenc.html` in a browser or use the landing page (`index.html`). Help (Catalan): `pagesCAT/HLP guaitaLlenc-ajuda.html`.
 
