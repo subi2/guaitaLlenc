@@ -757,6 +757,17 @@ await test('github: interfície', async () => {
   ok(GL.io.serialize().ts === undefined, 'sense vincle no s\'inclou ts');
 });
 
+/* ── Paquet Seguretat i investigació (v1.0.0) ── */
+await test('paquet seguretat: símbols originals, sense marques ni cossos reals', async () => {
+  const txt = fs.readFileSync(new URL('../packs/seguretat-investigacio.llencpack.json', import.meta.url), 'utf8');
+  const pk = JSON.parse(txt);
+  ok(pk.format === 'guaitaLlencPack' && pk.id === 'seguretat-investigacio' && pk.symbols.length === 60, '60 símbols amb format correcte');
+  ok(new Set(pk.symbols.map(s => s.id)).size === pk.symbols.length, 'ids únics');
+  ok(pk.symbols.every(s => Object.keys(pk.symCats).includes(s.cat)), 'totes les categories existeixen');
+  const bad = /mossos|guàrdia|guardia|urbana|policia local|007|bond|walther|gun ?barrel|canó/i;
+  ok(!bad.test(txt), 'cap referència a cossos reals, personatges ni marques');
+});
+
 await flush();
 console.log(`\n${pass} proves superades, ${fail} errors`);
 if (fails.length) { console.log(fails.map(f => '  ✗ ' + f).join('\n')); process.exit(1); }

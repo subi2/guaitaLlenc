@@ -16,6 +16,10 @@ Editor gràfic de la suite [Guaita Apps](https://github.com/subi2/guaitaApps): u
 - **Col·laboració asíncrona amb GitHub**: instantània + registre d'operacions, fusió sense conflictes (darrer que escriu guanya per propietat), historial de versions, comparació, restauració i autoria.
 - Desfés/refés, paleta d'ordres (`Ctrl+K`) i menús desplegables amb totes les eines.
 
+## Paquets
+
+- `packs/infantil`, `packs/empresa`, `packs/arquitectura` i `packs/seguretat-investigacio` (v1.0.0, 60 símbols): icones i gràfics de seguretat, policia genèrica, espionatge i investigació. Són originals i genèrics: no inclouen escuts, logotips ni distintius de cossos policials reals (Mossos d'Esquadra, Guàrdia Urbana, etc.), ni personatges de ficció ni les seves marques.
+
 ## Ús
 
 L'app és instal·lable com a aplicació (PWA) des del navegador i funciona sense connexió gràcies al service worker (`sw.js`, a cada carpeta de pàgines). Versions: `pagesCAT/` (CAT) i `pagesENG/` (ENG, amb ajuda en anglès; la interfície segueix en català).
